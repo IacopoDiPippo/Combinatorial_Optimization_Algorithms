@@ -4,8 +4,8 @@ import random_graph
 import dijkstra
 
 # Define some parameters here
-height = 4
-length = 4
+height =9
+length = 10
 block_size = 40
 p = .6
 

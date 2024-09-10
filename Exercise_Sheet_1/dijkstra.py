@@ -1,8 +1,19 @@
 # Define the function that finds nearest vertex not in the visited
-# It receives tree arguments: list dist with the distances, list of vertices V, and the list of vertices in the visited
+# It receives tree arguments: list dist with the distances, list of vertices V, and the list of visited vertices in the visited
 # It outputs nearest vertex not in the visited if any, otherwise it should return -1
 def minDistance(dist, V, visited):
     
+    mindist= float('inf')
+    v_min=-1
+    for v in V:
+        if visited[v]==False and dist[v]<mindist:
+            mindist=dist[v]
+            v_min=v
+
+    if mindist!=float('inf'):
+        return v_min
+
+
     return -1
 
 
