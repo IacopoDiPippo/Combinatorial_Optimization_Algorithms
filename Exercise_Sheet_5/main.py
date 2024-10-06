@@ -41,3 +41,12 @@ start_time = time.time()
 f_max = g.edmonds_karp(source, sink)
 end_time = time.time()
 print("Edmonds-Karp executed in " + str(end_time - start_time) + " seconds. Max Flow found: " + str(f_max))
+
+
+# Running Push-Relabel (Goldberd-Tarjan)
+adjacency_matrix_copy = [list.copy() for list in adjacency_matrix]
+g = graph_module.Graph(adjacency_matrix_copy)
+start_time = time.time()
+f_max = g.push_relabel(source, sink)
+end_time = time.time()
+print("Push-Relabel executed in " + str(end_time - start_time) + " seconds. Max Flow found: " + str(f_max))

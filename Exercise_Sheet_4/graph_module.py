@@ -88,8 +88,26 @@ class Graph:
     
     # Edmonds-Karp algorithm
     def edmonds_karp(self, source, sink):
-        return 0
+        max_flow= 0 
+        parent = [-1] * (self.numOfVertices)
+        while self.find_aug_path_BFS(source, sink, parent ):
+
+            gamma = float('Inf')
+            s=sink
+            while (s!=source):
+                gamma = min(gamma, self.adjacency_matrix[parent[s]][s])
+                s=parent[s]
+
+            self.update_residual(source,sink,gamma,parent,self.adjacency_matrix)
+            max_flow+=gamma
+        return max_flow
     
     # Update residual graph
     def update_residual(self, source, sink, gamma, parent_list, residual_graph):
-        return
+        s=sink
+        while (s != source):
+            residual_graph[parent_list[s]][s] -= gamma
+            residual_graph[s][parent_list[s]] += gamma
+            s=parent_list[s]
+
+        return 0
