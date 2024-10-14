@@ -1,5 +1,6 @@
 import time
 import graph_module
+import numpy as np
 
 # Use float("Inf") for edges of infinite value
 # The entry adjacency_matrix[u][v] is a list [capacity(u,v),cost(u,v)] of edge (u,v)
